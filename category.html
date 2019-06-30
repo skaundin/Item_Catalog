@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <style>
+        #navbar {
+            background-color: 00008B;
+            width: 100%;
+            float: left;
+
+
+            padding: 14px 16px;
+            text-decoration: none;
+
+        }
+
+        #navbar li {
+            float: left;
+        }
+
+        #navbar a {
+            color: azure;
+            text-align: center;
+            font-size: 17px;
+        }
+
+
+
+        .column-left {
+            padding: 20px;
+            color: red;
+            width: 30%;
+        }
+
+        .column-right-right {
+            float: right;
+            padding: 20px;
+            color: red;
+            width: 70%;
+        }
+
+        .column-right-v1 {
+            border-left: 1px solid grey;
+            float: right;
+            height: 1000px
+        }
+
+        @media only screen and (max-width : 768px) {
+
+            .column-left,
+            .column-right-v1,
+            .column-right-right {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" type='text/css' href="{{url_for('static', filename='styles.css')}}">
+
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="/">Catalog App</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="row">
+        <div class="column-right-right">
+            <strong>Items</strong>
+            </br></br>
+            {% for x in items %}
+            {{x.name}}</br></br>
+            {% endfor %}
+
+        </div>
+
+        <div class="column-right-v1">
+        </div>
+
+        <div class="column-left">
+            <Strong>Categories</Strong>
+            </br></br>
+            {% for i in category %}
+            {{i.name}}</br></br>
+            {% endfor %}
+        </div>
+
+
+    </div>
+</body>
+
+
+</html>
