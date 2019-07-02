@@ -1,0 +1,87 @@
+        body{
+            background-color:lightgray;
+        }
+        
+        #navbar {
+            background-color: 00008B;
+            width: 100%;
+            float: left;
+
+
+            padding: 14px 16px;
+            text-decoration: none;
+
+        }
+
+        #navbar li {
+            float: left;
+        }
+
+        #navbar #login{
+            position:relative;
+            float:right;
+        }
+
+        #navbar a {
+            color: azure;
+            text-align: center;
+            font-size: 17px;
+        }
+
+        .box-white{
+            float:left;
+            width:50%;
+            background:white
+}
+
+       .column-right-right {
+            float: right;
+            padding: 50px;
+            font-family:'Helvetica';
+            font-size:12px;
+            color: red;
+            width: 70%;
+        }
+
+        .column-right-v1 {
+            border-left: 1px solid grey;
+            float: right;
+            height: 500px
+        }
+
+        .column-left {
+            padding: 30px;
+            font-family:'Helvetica';
+            font-size:12px;
+            color: red;
+            width: 30%;
+        }
+
+        .column-left-form{
+            padding: 50px;
+            font-family:'Helvetica';
+            font-size:12px;
+            color: black;
+            width: 30%;
+        }
+
+        strong{
+            font-weight: bold;
+            font-family:'Helvetica';
+            font-size:20px;
+            color:black;
+        }
+        
+
+        @media only screen and (max-width : 768px) {
+
+            .column-left,
+            .column-right-v1,
+            .column-right-right {
+                width: 100%;
+            }
+        }
+
+
+
+
