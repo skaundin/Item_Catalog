@@ -1,47 +1,44 @@
 <html>
 
-<head>
+    <head>
 
-    <link rel="stylesheet" type='text/css' href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" type='text/css' href="{{url_for('static', filename='style.css')}}">
 
-</head>
+    </head>
 
-<body>
-    <nav id="navbar">
-        <ul>
-            <li><a href="/">Catalog App</a>
-            </li>
-        </ul>
-    </nav>
+    <body>
+        <nav id="navbar">
+            <ul>
+                <li><a href="/">Catalog App</a>
+                </li>
+            </ul>
+        </nav>
 
-    <div class="box-white">
-        <div class="row">
+        <div class="box-white">
+            <div class="row">
 
-            <div class="column-right-right">
-                <strong>Items</strong>
-                </br></br>
-                {% for x in items %}
-                {{x.name}}</br></br>
-                {% endfor %}
+                <div class="column-right-right">
+                    <a href="{{url_for('new_item', category_name=category_name)}}">Add Item</a></br></br>
+                    <Strong>Items</Strong>
+                    </br></br>
+                    {% for x in items %}
+                    <a href="/catalog/{{category_name}}/{{x.name}}/">{{x.name}}</a></br></br>
+                    {% endfor %}
+                </div>
+                <div class="column-left">
+                    <Strong>Categories</Strong>
+                    </br></br>
+                    {% for i in categories %}
 
-            </div>
+                    <a href="/catalog/{{i.name}}/items">{{i.name}}</a></br></br>
+                    {% endfor %}
+                </div>
+                <div class="column-right-v1">
+                </div>
 
-            <div class="column-right-v1">
-            </div>
-
-            <div class="column-left">
-                <Strong>Categories</Strong>
-                </br></br>
-                {% for i in category %}
-                {{i.name}}</br></br>
-                {% endfor %}
             </div>
         </div>
-
-
-
-    </div>
-</body>
+    </body>
 
 
 </html>

@@ -1,31 +1,31 @@
 <html>
 
-<head>
-    <title>Item Catalog</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}" />
-</head>
+    <head>
+        <title>Item Catalog</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}" />
+    </head>
 
-<body>
-    <nav id="navbar">
-        <ul>
-            <li><a href="/">Catalog App</a>
-            <li id="login"><a href="login.html">Login</li>
-            </li>
-        </ul>
-    </nav>
-    <div class="box-white">
-        <div class="column-left">
-            <strong>Categories</strong>
-            </br></br>
-            {% for i in categories %}
-            {{i.name}}</br></br>
-            {% endfor %}
+    <body>
+
+        <nav id="navbar">
+            <ul>
+                <li><a href="/">Catalog App</a>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+        <div class="box-white">
+            <div class="column-left">
+                <strong>Categories</strong>
+                </br></br>
+                {% for i in categories %}
+                <a href="/catalog/{{i.name}}/items/">{{i.name}}</a></br></br>
+                {% endfor %}
+            </div>
+
         </div>
 
-    </div>
-
-    </div>
-</body>
+        </div>
+    </body>
 
 
 </html>
