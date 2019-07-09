@@ -14,45 +14,52 @@
         }
 
         #navbar li {
+            list-style: none;
             float: left;
         }
 
         #navbar #login{
-            position:relative;
             float:right;
         }
 
         #navbar a {
             color: azure;
             text-align: center;
-            font-size: 17px;
+            font-size: 25px;
         }
 
         .box-white{
-            float:left;
+            position:absolute;
+            top:15%;
+            left:25%;
             width:50%;
+            resize:both;
             background:white
 }
 
        .column-right-right {
-            float: right;
-            padding: 50px;
+            float:right;
+            padding: 30px;
             font-family:'Helvetica';
-            font-size:12px;
+            font-size:15px;
             color: red;
-            width: 70%;
+            width: 30%;
         }
 
         .column-right-v1 {
             border-left: 1px solid grey;
-            float: right;
-            height: 500px
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            margin-left: -3px;
+            top: 0;
+
         }
 
         .column-left {
             padding: 30px;
             font-family:'Helvetica';
-            font-size:12px;
+            font-size:15px;
             color: red;
             width: 30%;
         }
@@ -71,8 +78,20 @@
             font-size:20px;
             color:black;
         }
-        
 
+        .edit-delete{
+            list-style:none;
+            padding:30px
+        }
+
+        .edit-delete li{
+            display:inline;
+            
+        }
+        
+        .edit-delete.edit{
+            border-right:solid 1px black /*add */
+        }
         @media only screen and (max-width : 768px) {
 
             .column-left,
