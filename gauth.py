@@ -45,7 +45,7 @@ def authorized(fn):
         userid = validate_token(access_token)
         if userid is None:
             print("Check returned FAIL!")
-            return redirect(url_for('show_login'))
+            return redirect(url_for('home'))
 
         return fn(*args, **kwargs)
     return _wrap
