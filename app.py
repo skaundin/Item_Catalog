@@ -1,18 +1,17 @@
-import random
-import string
-
-import httplib2
-import requests
-from flask import (Flask, abort, flash, json, jsonify, make_response, redirect,
-                   render_template, request, session, url_for)
-from flask_httpauth import HTTPBasicAuth
+from flask import Flask, render_template, url_for, request, redirect, flash, jsonify, abort, json, session
 from flask_session import Session
-# NEW IMPORTS
-from oauth2client.client import FlowExchangeError, flow_from_clientsecrets
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
 from catalog_database_setup import Base, Category, Item
+from flask_httpauth import HTTPBasicAuth
+# NEW IMPORTS
+from oauth2client.client import flow_from_clientsecrets
+from oauth2client.client import FlowExchangeError
+import httplib2
+import random
+import string
+from flask import make_response
+import requests
 from gauth import authorized
 
 engine = create_engine('sqlite:///catalog.db')
@@ -20,15 +19,11 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 
 app = Flask(__name__)
-
-
-def create_app(config_file):
-    app.config.from_object(__name__)
-    app.secret_key = b'i\x18\xd4\x93\xe9!\x87\xb7\x88E\x84>\xc1\x01\x96\x1d'
-    app.debug = True
-    app.config['SESSION_TYPE'] = 'filesystem'
-    sess.init_app(app)
-    return app
+app.secret_key = b'i\x18\xd4\x93\xe9!\x87\xb7\x88E\x84>\xc1\x01\x96\x1d'
+app.debug = True
+app.config['SESSION_TYPE'] = 'filesystem'
+app.config.from_object(__name__)
+Session(app)
 
 
 CLIENT_ID = json.loads(
