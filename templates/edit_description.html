@@ -18,9 +18,7 @@
                 <div class="column-left-form">
                     <strong>Edit Item</strong>
                     </br></br>
-                    {% for i in items %}
-
-                    <form action="{{url_for('display_item', category_name=category_name, item_name=item_name)}}"
+                    <form action="{{url_for('item_desc', category_name=category_name, item_name=item_name)}}"
                         method='POST'>
 
                         Category<br />
@@ -29,12 +27,11 @@
                         </select>
                         <br /><br />
                         Title<br />
-                        <input type="text" name="iname" value="{{i.name}}"></input><br /><br />
+                        <input type="text" name="iname" value="{{item.name}}"></input><br /><br />
                         Description<br />
-                        <input type="text" name="idesc" value="{{i.description}}"></input><br /><br />
+                        <input type="text" name="idesc" value="{{item.description}}"></input><br /><br />
                         <input type="submit" />
                     </form>
-                    {% endfor %}
                 </div>
 
             </div>
