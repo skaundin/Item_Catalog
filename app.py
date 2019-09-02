@@ -111,18 +111,21 @@ def gconnect():
 
     output = ''
     output += '<h1>Welcome, '
-    output += session['username']
-    output += '!</h1>'
-    output += '<img src="'
-    output += session['picture']
-    output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
-    flash("you are now logged in as %s" % session['username'])
+    # output += session['username']
+    # output += '!</h1>'
+    # output += '<img src="'
+    # output += session['picture']
+    # output += ' " style = "width: 300px; height: 300px;border-radius: 150px;-webkit-border-radius: 150px;-moz-border-radius: 150px;"> '
+    # flash("you are now logged in as %s" % session['username'])
     print("done!")
-    return output
+    response = make_response(output, 200)
+    response.headers['Content-Type'] = 'application/html'
+    return response
 
 # home page
 @app.route("/", methods=['GET'])
 def home():
+    session.permanent = False
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in range(32))
     session['state'] = state
