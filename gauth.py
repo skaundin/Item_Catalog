@@ -11,7 +11,8 @@ def validate_token(access_token):
     h = Http()
     resp, cont = h.request("https://www.googleapis.com/oauth2/v2/userinfo",
                            headers={'Host': 'www.googleapis.com',
-                                    'Authorization': 'Bearer ' + str(access_token)})
+                                    'Authorization': 'Bearer '
+                                    + str(access_token)})
 
     if not resp['status'] == '200':
         return None

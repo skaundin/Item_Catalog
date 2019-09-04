@@ -26,11 +26,24 @@ class Item(Base):
     name = Column(String(80), nullable=False, unique=True)
     id = Column(Integer, primary_key=True)
     description = Column(String(500), nullable=True)
+    user_id = Column(String(250), nullable=False)
     category_id = Column(Integer, ForeignKey('categories.id'))
     category = relationship(Category, back_populates="items")
 
+    @property
+    def serialize(self):
+        return {
+            'name': self.name,
+            'description': self.description,
+            'id': self.id,
+
+        }
+
     def __repr__(self):
-        return f"Item(name={self.name}, id={self.id}, description={self.description}, category_id={self.category_id})>"
+        return f"Item(name={self.name},\
+                      id = {self.id}, \
+                          description = {self.description}, \
+                            category_id = {self.category_id})"
 
 
 engine = create_engine('sqlite:///catalog.db')

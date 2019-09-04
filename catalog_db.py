@@ -34,15 +34,15 @@ hockey = Category(name='Hockey')
 session.add(hockey)
 
 soccerItem1 = Item(name='SoccerBall', category=soccer,
-                   description=" one size fits all")
+                   description=" one size fits all", user_id='suchita.kaundin@gmail.com')
 session.add(soccerItem1)
 soccerItem2 = Item(name='SoccerNet', category=soccer,
-                   description="sturdy and grade A quality")
+                   description="sturdy and grade A quality", user_id='suchita.kaundin@gmail.com')
 session.add(soccerItem2)
 snowBoardingItem1 = Item(name='Goggles', category=snowBoarding,
-                         description="Must be worn while snowboarding")
+                         description="Must be worn while snowboarding", user_id='suchita.kaundin@gmail.com')
 session.add(snowBoardingItem1)
 snowBoardingItem2 = Item(name='Snowboard', category=snowBoarding,
-                         description="Best for any terrain and conditions")
+                         description="Best for any terrain and conditions", user_id='suchita.kaundin@gmail.com')
 session.add(snowBoardingItem2)
 session.commit()
